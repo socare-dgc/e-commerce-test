@@ -23,3 +23,27 @@ export function readStoredTheme(): Theme {
   const raw = window.localStorage.getItem(STORAGE_KEY)
   return raw === 'light' || raw === 'dark' || raw === 'system' ? raw : 'system'
 }
+
+type Listener = () => void
+const listeners = new Set<Listener>()
+
+export function subscribeToTheme(listener: Listener): () => void {
+  listeners.add(listener)
+  return () => {
+    listeners.delete(listener)
+  }
+}
+
+function emit(): void {
+  listeners.forEach((listener) => listener())
+}
+
+export function writeStoredTheme(theme: Theme): void {
+  if (typeof window === 'undefined') return
+  if (theme === 'system') {
+    window.localStorage.removeItem(STORAGE_KEY)
+  } else {
+    window.localStorage.setItem(STORAGE_KEY, theme)
+  }
+  emit()
+}
