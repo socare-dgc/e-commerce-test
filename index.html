@@ -20,8 +20,7 @@
               : prefersDark
                 ? 'dark'
                 : 'light'
-          if (resolved === 'dark')
-            document.documentElement.classList.add('dark')
+          document.documentElement.classList.toggle('dark', resolved === 'dark')
           document.documentElement.style.colorScheme = resolved
         } catch (_) {
           /* localStorage unavailable; render default theme */
