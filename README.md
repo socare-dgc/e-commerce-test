@@ -2,7 +2,7 @@
 
 A clean, responsive React SPA for managing an e‑commerce product catalog. Built as a focused front‑end engineering exercise.
 
-![CI](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/socare-dgc/e-commerce-test/actions/workflows/ci.yml/badge.svg)](https://github.com/socare-dgc/e-commerce-test/actions/workflows/ci.yml)
 
 ## Highlights
 
