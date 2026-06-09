@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Package2, ShoppingBag } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 export function AppLayout() {
   return (
@@ -32,6 +33,7 @@ export function AppLayout() {
               <Package2 className="h-4 w-4" aria-hidden />
               <span className="hidden sm:inline">Products</span>
             </NavLink>
+            <ThemeToggle />
           </nav>
         </div>
       </header>
